@@ -26,7 +26,7 @@ function domestika_setup_theme() {
 add_action( 'after_setup_theme', 'domestika_setup_theme' );
 
 function domestika_enqueue_scripts() {
-  wp_enqueue_style( 'domestika-style', 'http://localhost/wordpress-Temas/tema1/wp-content/themes/domestika/styles.css');
+  wp_enqueue_style( 'domestika-style', '/wp-content/themes/domestika/style.css');
 }
 
 add_action( 'wp_enqueue_scripts', 'domestika_enqueue_scripts');
