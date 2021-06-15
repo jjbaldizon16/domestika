@@ -21,11 +21,23 @@
 	<div class="navigation-main-menu">
 		<div class="navigation-wrap">
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<ul id="main-menu" class="menu">
-					<li class="menu-item"><a href="">Menu 1</a></li>
-					<li class="menu-item"><a href="">Menu 2</a></li>
-					<li class="menu-item"><a href="">Menu 3</a></li>
-				</ul>
+				<?php if ( has_nav_menu( 'main-menu' ) ): ?>
+				 <?php wp_nav_menu([
+
+                  'theme_location' => 'main-menu',
+				  'menu_id' => 'main-menu'  
+                
+				 ]); ?>
+				<?php endif; ?>
+				<?php if ( has_nav_menu( 'main-menu' ) ): ?>
+				 <?php wp_nav_menu([
+
+                  'theme_location' => 'mobile-menu',
+				  'menu_id' => 'mobile-menu'  
+                
+				 ]); ?>
+				<?php endif; ?>
+				
 			</nav>
 		</div>
 	</div>
@@ -55,6 +67,7 @@
 		 </div>
 
 	 <?php endif; ?>
+	 
 
 </div>
 
