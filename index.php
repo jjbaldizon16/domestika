@@ -54,6 +54,26 @@
 								<?php _e( 'Featured', 'domestika' ); ?>
 							</div>
 						<?php endif; ?>
+
+                              <?php if ( has_post_thumbnail() ): ?>
+
+							   <div class="featured-image">
+							   <?php if ( is_page() ): ?>
+
+							   <?php the_post_thumbnail( 'featured-page' ); ?> 
+
+							   <?php else: ?>
+
+							   <?php the_post_thumbnail( 'featured-medium' ); ?>
+
+							   <?php endif; ?>
+							   
+
+							   
+							   </div>
+
+							  <?php endif; ?>
+
 						<p class="post-categories"><?php echo get_the_category_list( ' / ' ); ?></p>
 						<?php if ( is_single() ): ?>
 							<h1 class="post-title"><?php the_title(); ?></h1>

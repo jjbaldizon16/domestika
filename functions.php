@@ -22,6 +22,9 @@ function domestika_setup_theme() {
 
   load_theme_textdomain( 'domestika', get_template_directory() . '/languages' );
 
+  add_image_size( 'featured-medium', 870, 500, true );
+  add_image_size( 'featured-page', 1920, 400, true );
+
 }
 add_action( 'after_setup_theme', 'domestika_setup_theme' );
 
@@ -80,5 +83,13 @@ function domestika_register_menus() {
 }
 
 add_action( 'after_setup_theme', 'domestika_register_menus' );
+
+add_filter( 'excerpt_more', 'domestika_excerpt_more');
+
+function domestika_excerpt_more( $more ) {
+
+return $more . ' <p class="read-more"><a class="button" href="' . get_permalink() . '">' . __( 'Read More', 'domestika' ) . '</a></p>';
+
+}
 
 
