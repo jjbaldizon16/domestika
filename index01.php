@@ -17,7 +17,7 @@
 
 	<div class="navigation-main-menu">
 		<div class="navigation-wrap">
-			<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php _e( 'Top Menu', 'domestika' ); ?>">
+			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<?php if ( has_nav_menu( 'main-menu' ) ): ?>
 					<?php
 					wp_nav_menu(
@@ -44,7 +44,7 @@
 </header>
 
 <div id="content" class="row">
-	<main id="main" class="columns large-<?php echo is_page() ? 12 : 9 ?> small-12">
+	<main id="main" class="columns large-9 small-12">
 		<?php if ( have_posts() ): ?>
 			<?php while ( have_posts() ) : the_post() ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -55,15 +55,24 @@
 							</div>
 						<?php endif; ?>
 
-						<?php if ( has_post_thumbnail() ): ?>
-							<div class="featured-image">
-								<?php if ( is_page() ): ?>
-									<?php the_post_thumbnail( 'featured-page' ); ?>
-								<?php else: ?>
-									<?php the_post_thumbnail( 'featured-medium' ); ?>
-								<?php endif; ?>
-							</div>
-						<?php endif; ?>
+                              <?php if ( has_post_thumbnail() ): ?>
+
+							   <div class="featured-image">
+							   <?php if ( is_page() ): ?>
+
+							   <?php the_post_thumbnail( 'featured-page' ); ?> 
+
+							   <?php else: ?>
+
+							   <?php the_post_thumbnail( 'featured-medium' ); ?>
+
+							   <?php endif; ?>
+							   
+
+							   
+							   </div>
+
+							  <?php endif; ?>
 
 						<p class="post-categories"><?php echo get_the_category_list( ' / ' ); ?></p>
 						<?php if ( is_single() ): ?>
@@ -100,7 +109,7 @@
 			</header>
 		<?php endif; ?>
 	</main>
-	<?php if ( ! is_page() && is_active_sidebar( 'sidebar-widgets' ) ): ?>
+	<?php if ( is_active_sidebar( 'sidebar-widgets' ) ): ?>
 		<div class="sidebar columns large-3 small-12">
 			<aside class="sidebar">
 				<?php dynamic_sidebar( 'sidebar-widgets' ); ?>
