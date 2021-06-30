@@ -1,5 +1,36 @@
 <?php get_header(); ?>
 <main id="main" class="columns large-<?php echo is_page() ? 12 : 9 ?> small-12">
+   
+      <?php if ( is_archive() ): ?>
+  
+     <h1 class="page-title"> <?php the_archive_title(); ?> </h1>
+	 <div class="taxonomy-description"> <?php the_archive_description(); ?> </div>
+
+      <?php endif; ?>  
+
+	  <?php if ( is_search() ): ?>
+
+       <h1 class="page-title">
+        <?php _e( 'Search results for:', 'domestika' ); ?> <?php echo get_search_query(); ?>
+	   </h1> 
+
+	  <?php endif; ?>
+	  <?php if ( is_author() ): ?>
+		<div class="author-info">
+		<h2 class="author-heading"> <?php _e( 'Posts published by', 'domestika'); ?> </h2>
+	     
+		<div class="author-avatar">
+       <?php echo get_avatar( get_the_author_meta( 'user_email' ), 100 ); ?>
+	  </div>
+       <div class="author-description">
+		   <h3 class="author-title"> <?php the_author(); ?> </h3>
+		   <p class="author-bio"><?php get_the_author_meta( 'description' ) ?></p>
+
+	   </div> 
+	   </div>
+		
+		<?php endif; ?>
+	    
 
 	<?php if ( have_posts() ): ?>
 		<?php while ( have_posts() ) : the_post() ?>
