@@ -32,10 +32,43 @@ function domestika_setup_theme() {
 	// Registro de tamaños de imágenes
 	add_image_size( 'featured-medium', 870, 500, true );
 	add_image_size( 'featured-page', 1920, 400, true );
+
+	// Cabecera personalizada
+	$header_settings = [
+		'width' => 1500,
+		'height' => 350,
+		'flex-height' => false,
+		'flex-width' => false,
+		'header-text' => false,
+	];
+	add_theme_support( 'custom-header', $header_settings );
+
+	// Logotipo personalizado
+	$logo_defaults = [
+		'height'      => 150,
+		'width'       => 150,
+		'flex-height' => false,
+		'flex-width'  => false,
+		'header-text' => [ 'site-title', 'site-description' ],
+	];
+	add_theme_support( 'custom-logo', $logo_defaults );
+
+	// Fondo personalizado
+	$background_defaults = [
+		'default-color'    => '#fefefe',
+	];
+	add_theme_support( 'custom-background', $background_defaults );
 }
 add_action( 'after_setup_theme', 'domestika_setup_theme' );
 
 require 'inc/menus.php';
-require 'inc/scripts.php';
-require 'inc/templates.php';
+
 require 'inc/widgets.php';
+
+require 'inc/templates.php';
+
+require 'inc/scripts.php';
+
+require 'inc/costumizer.php';
+
+
