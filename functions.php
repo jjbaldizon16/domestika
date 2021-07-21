@@ -57,6 +57,9 @@ function domestika_setup_theme() {
 	$background_defaults = [
 		'default-color'    => '#fefefe',
 	];
+	$background_settings = [
+       'default-color' => '#fefefe',
+	];
 	add_theme_support( 'custom-background', $background_defaults );
 }
 add_action( 'after_setup_theme', 'domestika_setup_theme' );
@@ -70,5 +73,7 @@ require 'inc/templates.php';
 require 'inc/scripts.php';
 
 require 'inc/costumizer.php';
+
+require 'inc/editor.php';
 
 
